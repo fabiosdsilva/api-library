@@ -24,5 +24,11 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Books',
   });
+
+  Books.findAll = async () => {
+    const books = await Books.findAll();
+    return books;
+  }
+
   return Books;
 };
