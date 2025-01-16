@@ -9,14 +9,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      firstName: {
-        type: Sequelize.STRING
+      bookId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {model: 'Books', key: 'id'}
       },
-      lastName: {
-        type: Sequelize.STRING
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {model: 'Users', key: 'id'}
       },
-      email: {
-        type: Sequelize.STRING
+      vote: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
