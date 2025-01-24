@@ -4,8 +4,10 @@ const bodyParser = require('body-parser')
 const app = express();
 const db = require('./src/config/mysql.js');
 
+require('dotenv').config();
 // Routes
-const apiRouter = require('./src/routes/books');
+const books = require('./src/routes/books');
+const login = require('./src/routes/login');
 
 db.connect((err) => {
     if (err) {
@@ -18,7 +20,8 @@ db.connect((err) => {
 // Middleware
 
 app.use(express.json());
-app.use('/', apiRouter);
+app.use('/', books);
+app.use('/', login);
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
